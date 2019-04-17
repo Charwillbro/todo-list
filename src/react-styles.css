@@ -95,6 +95,7 @@ body {
     border-bottom: solid 1px rgb(142, 162, 161);
     border-right: solid 1px rgb(142, 162, 161);
     border-radius: 5px;
+
 }
 
 .finished-list-item-text {
@@ -106,6 +107,12 @@ body {
 }
 
 .finished-button {
+    margin-right: 25px;
+    border: none;
+    background-color: transparent;
+    color: #92abbb;
+}
+.delete-button {
     margin-right: 25px;
     border: none;
     background-color: transparent;

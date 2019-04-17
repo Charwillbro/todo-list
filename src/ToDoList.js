@@ -43,10 +43,22 @@ class ToDoList extends Component {
                 finishedItem
             ]
         })
-
     };
+    markItemAsTrash = (activeItem) => {
+        console.log("mark as trash "+activeItem.toString());
+            const currentFinishedListItems = this.state.finishedListItems;
+            const indexOfActiveItem = currentFinishedListItems.indexOf(activeItem.toString());
 
+            currentFinishedListItems.splice(indexOfActiveItem, 1);
+
+            this.setState({
+                ...this.state,
+
+                finishedListItems: currentFinishedListItems
+            })
+        };
     markItemAsActive = (activeItem) => {
+        console.log("mark as active "+activeItem.toString());
         const currentFinishedListItems = this.state.finishedListItems;
         const indexOfActiveItem = currentFinishedListItems.indexOf(activeItem.toString());
 
@@ -68,6 +80,7 @@ class ToDoList extends Component {
         this.addItemToList = this.addItemToList.bind(this);
         this.markItemAsFinished = this.markItemAsFinished.bind(this);
         this.markItemAsActive = this.markItemAsActive.bind(this);
+        this.markItemAsTrash = this.markItemAsTrash.bind(this);
 
         this.state = {
             currentListItem: '',
@@ -98,7 +111,9 @@ class ToDoList extends Component {
                     className="finished-items"
                     finishedListItems={this.state.finishedListItems}
                     onClick={this.markItemAsActive}
+                    removeItem={this.markItemAsTrash}
                 />
+
             </div>
         );
     }

@@ -12,7 +12,7 @@ const getTextClass = (isActive) => isActive ? "active-list-item-text" : "finishe
 
 class ListItem extends Component {
     render() {
-        const {item, isActive, onClick} = this.props;
+        const {item, isActive, onClick, removeItem} = this.props;
 
         return (
             <div className={getContainerClass(isActive)}>
@@ -42,8 +42,8 @@ class ListItem extends Component {
                                 />
                             </button>
                             <button
-                                className="finished-button"
-                                onClick={() => console.log('Not implemented yet!')}
+                                className="delete-button"
+                                onClick={() => removeItem(item)}
                             >
                                 <FontAwesomeIcon
                                     color="#eeeeee"
